@@ -38,7 +38,7 @@ public class AuthorDaoImpl implements AuthorDao {
 		try {
 			EntityManager em = JPAUtil.getEntityManager();
 			em.getTransaction().begin();
-			em.persist(auth);
+			em.merge(auth);
 			em.getTransaction().commit();
 			return true;
 			}catch (Exception e) {
@@ -51,7 +51,7 @@ public class AuthorDaoImpl implements AuthorDao {
 		try {
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
-		em.persist(auth);
+		em.remove(auth);
 		em.getTransaction().commit();
 		return true;
 		}catch (Exception e) {
